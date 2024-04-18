@@ -30,5 +30,9 @@ public class Casa implements Serializable {
         this.churrasqueira = churrasqueira;
     }
 
+    public boolean getChurrasqueira(){
+        return churrasqueira;
+    }
+
 
 }
