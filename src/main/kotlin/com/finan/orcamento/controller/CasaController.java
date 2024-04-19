@@ -1,6 +1,7 @@
 package com.finan.orcamento.controller;
 
 import com.finan.orcamento.model.Casa;
+import com.finan.orcamento.model.builder.casa.IBuilderCasa;
 import com.finan.orcamento.service.CasaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

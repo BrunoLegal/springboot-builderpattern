@@ -1,6 +1,7 @@
 package com.finan.orcamento.service;
 
 import com.finan.orcamento.model.Casa;
+import com.finan.orcamento.model.builder.casa.IBuilderCasa;
 import com.finan.orcamento.repositories.CasaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,10 +31,8 @@ public class CasaService {
         return casaRepository.save(casa);
     }
     public Casa atualizarCasa(Casa casa, Long id){
-        Casa newCasa = buscaId(id);
-        newCasa.setBanheiros(casa.getBanheiros());
-        newCasa.setChurrasqueira(casa.getChurrasqueira());
-        newCasa.setQuartos(casa.getQuartos());
+        Casa tempCasa = buscaId(id);
+        Casa newCasa = new Casa(tempCasa.getId(), casa.getQuartos(), casa.getBanheiros(), casa.isChurrasqueira());
         return casaRepository.save(newCasa);
     }
 
