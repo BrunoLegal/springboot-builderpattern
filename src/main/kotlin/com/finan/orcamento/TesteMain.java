@@ -15,12 +15,13 @@ public class TesteMain {
 
         ApplicationContext context = SpringApplication.run(TesteMain.class, args);
         CasaService orcamentoService = context.getBean(CasaService.class);
-         
+
         IBuilderCasa builderCasa1 = new Casa2Quartos();
         builderCasa1.buildQuartos();
         builderCasa1.buildBanheiros();
         builderCasa1.buildChurrasqueira();
         Casa casa1 = builderCasa1.getCasa();
+        orcamentoService.cadastrarCasa(casa1);
 
         System.out.println("Casa 1: ");
         System.out.println("Quartos " + casa1.getQuartos());
@@ -34,6 +35,7 @@ public class TesteMain {
         builderCasa2.buildBanheiros();
         builderCasa2.buildChurrasqueira();
         Casa casa2 = builderCasa2.getCasa();
+        orcamentoService.cadastrarCasa(casa2);
 
         System.out.println("Casa 2: ");
         System.out.println("Quartos " + casa2.getQuartos());
