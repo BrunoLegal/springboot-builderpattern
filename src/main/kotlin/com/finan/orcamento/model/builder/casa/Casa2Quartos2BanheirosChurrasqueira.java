@@ -2,7 +2,7 @@ package com.finan.orcamento.model.builder.casa;
 
 import com.finan.orcamento.model.Casa;
 
-public class Casa2Quartos2BanheirosChurrasqueira {
+public class Casa2Quartos2BanheirosChurrasqueira implements IBuilderCasa{
     private Casa casa;
     public Casa2Quartos2BanheirosChurrasqueira(){
         casa = new Casa(2, 2, true);
@@ -27,4 +27,4 @@ public class Casa2Quartos2BanheirosChurrasqueira {
         return casa;
     }
 }
-}
+
