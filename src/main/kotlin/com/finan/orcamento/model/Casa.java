@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
-@Data
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -30,9 +30,19 @@ public class Casa implements Serializable {
         this.churrasqueira = churrasqueira;
     }
 
-    public boolean getChurrasqueira(){
-        return churrasqueira;
+    public Long getId() {
+        return id;
     }
 
+    public int getQuartos() {
+        return quartos;
+    }
 
+    public int getBanheiros() {
+        return banheiros;
+    }
+
+    public boolean isChurrasqueira() {
+        return churrasqueira;
+    }
 }
