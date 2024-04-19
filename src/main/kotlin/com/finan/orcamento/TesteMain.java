@@ -42,5 +42,18 @@ public class TesteMain {
         System.out.println("Banheiros " + casa2.getBanheiros());
         System.out.println("Churrasqueira: " + casa2.isChurrasqueira());
 
+        System.out.println("------------------------------------------");
+
+        IBuilderCasa builderCasa3 = new Casa2Quartos2BanheirosChurrasqueira();
+        builderCasa3.buildQuartos();
+        builderCasa3.buildBanheiros();
+        builderCasa3.buildChurrasqueira();
+        Casa casa3 = builderCasa3.getCasa();
+        orcamentoService.cadastrarCasa(casa3);
+
+        System.out.println("Casa 3: ");
+        System.out.println("Quartos " + casa3.getQuartos());
+        System.out.println("Banheiros " + casa3.getBanheiros());
+        System.out.println("Churrasqueira: " + casa3.isChurrasqueira());
     }
 }
