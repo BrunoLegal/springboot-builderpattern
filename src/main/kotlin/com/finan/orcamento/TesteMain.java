@@ -1,6 +1,9 @@
 package com.finan.orcamento;
 
 import com.finan.orcamento.model.Casa;
+import com.finan.orcamento.model.builder.casa.Casa2Quartos;
+import com.finan.orcamento.model.builder.casa.Casa2Quartos2BanheirosChurrasqueira;
+import com.finan.orcamento.model.builder.casa.IBuilderCasa;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -14,27 +17,27 @@ public class PatternsBuildApplication {
          */
 
         SpringApplication.run(PatternsBuildApplication.class, args);
-        BuilderCasa builderCasa1 = new Casa2Quartos();
+        IBuilderCasa builderCasa1 = new Casa2Quartos();
         builderCasa1.buildQuartos();
-        builderCasa1.BuildBanheiros();
+        builderCasa1.buildBanheiros();
         builderCasa1.buildChurrasqueira();
-        Casa casa1 - builderCasa1.getCasa();
+        Casa casa1 = builderCasa1.getCasa();
 
         System.out.println("Casa 1: ");
-        System.out.println("Quartos " + casa1.getquartos());
+        System.out.println("Quartos " + casa1.getQuartos());
         System.out.println("Banheiros " + casa1.getBanheiros());
         System.out.println("Churrasqueira: " + casa1.isChurrasqueira());
 
         System.out.println("------------------------------------------");
 
-        BuilderCasa builderCasa2 = new Casa2Quartos2BanheiroChurrasqueira();
+        IBuilderCasa builderCasa2 = new Casa2Quartos2BanheirosChurrasqueira();
         builderCasa2.buildQuartos();
-        builderCasa2.BuildBanheiros();
+        builderCasa2.buildBanheiros();
         builderCasa2.buildChurrasqueira();
         Casa casa2 = builderCasa2.getCasa();
 
         System.out.println("Casa 2: ");
-        System.out.println("Quartos " + casa2.getquartos());
+        System.out.println("Quartos " + casa2.getQuartos());
         System.out.println("Banheiros " + casa2.getBanheiros());
         System.out.println("Churrasqueira: " + casa2.isChurrasqueira());
 
