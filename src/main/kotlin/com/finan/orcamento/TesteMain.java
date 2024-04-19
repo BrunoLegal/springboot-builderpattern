@@ -4,19 +4,18 @@ import com.finan.orcamento.model.Casa;
 import com.finan.orcamento.model.builder.casa.Casa2Quartos;
 import com.finan.orcamento.model.builder.casa.Casa2Quartos2BanheirosChurrasqueira;
 import com.finan.orcamento.model.builder.casa.IBuilderCasa;
+import com.finan.orcamento.service.CasaService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
-public class PatternsBuildApplication {
+public class TesteMain {
     public static void main(String[] args) {
 
-        /**
-         * ApplicationContext context = SpringApplication.run(TesteMain.class, args);
-         * OrcamentoService orcamentoService = context.getBean(OrcamentoService.class);
-         */
-
-        SpringApplication.run(PatternsBuildApplication.class, args);
+        ApplicationContext context = SpringApplication.run(TesteMain.class, args);
+        CasaService orcamentoService = context.getBean(CasaService.class);
+         
         IBuilderCasa builderCasa1 = new Casa2Quartos();
         builderCasa1.buildQuartos();
         builderCasa1.buildBanheiros();
