@@ -1,9 +1,7 @@
 package com.finan.orcamento;
 
 import com.finan.orcamento.model.Casa;
-import com.finan.orcamento.model.builder.casa.Casa2Quartos;
-import com.finan.orcamento.model.builder.casa.Casa2Quartos2BanheirosChurrasqueira;
-import com.finan.orcamento.model.builder.casa.IBuilderCasa;
+import com.finan.orcamento.model.builder.casa.*;
 import com.finan.orcamento.service.CasaService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -44,7 +42,7 @@ public class TesteMain {
 
         System.out.println("------------------------------------------");
 
-        IBuilderCasa builderCasa3 = new Casa2Quartos2BanheirosChurrasqueira();
+        IBuilderCasa builderCasa3 = new Casa1Quarto();
         builderCasa3.buildQuartos();
         builderCasa3.buildBanheiros();
         builderCasa3.buildChurrasqueira();
@@ -55,5 +53,33 @@ public class TesteMain {
         System.out.println("Quartos " + casa3.getQuartos());
         System.out.println("Banheiros " + casa3.getBanheiros());
         System.out.println("Churrasqueira: " + casa3.isChurrasqueira());
+
+        System.out.println("------------------------------------------");
+
+        IBuilderCasa builderCasa4 = new Casa5Quartos2BanheirosChurrasqueira();
+        builderCasa4.buildQuartos();
+        builderCasa4.buildBanheiros();
+        builderCasa4.buildChurrasqueira();
+        Casa casa4 = builderCasa4.getCasa();
+        orcamentoService.cadastrarCasa(casa4);
+
+        System.out.println("Casa 4: ");
+        System.out.println("Quartos " + casa4.getQuartos());
+        System.out.println("Banheiros " + casa4.getBanheiros());
+        System.out.println("Churrasqueira: " + casa4.isChurrasqueira());
+
+        System.out.println("------------------------------------------");
+
+        IBuilderCasa builderCasa5 = new CasaComNada();
+        builderCasa5.buildQuartos();
+        builderCasa5.buildBanheiros();
+        builderCasa5.buildChurrasqueira();
+        Casa casa5 = builderCasa5.getCasa();
+        orcamentoService.cadastrarCasa(casa5);
+
+        System.out.println("Casa 5: ");
+        System.out.println("Quartos " + casa5.getQuartos());
+        System.out.println("Banheiros " + casa5.getBanheiros());
+        System.out.println("Churrasqueira: " + casa5.isChurrasqueira());
     }
 }
